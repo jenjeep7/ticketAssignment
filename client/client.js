@@ -23,7 +23,7 @@ vm.updateTickets = function() {
   });
 };
 vm.deleteTicket = function(ticket) {
-  $http.delete('/deleteTicket' + ticket._id).then(function(response){
+  $http.delete('/tickets/delete' + ticket._id).then(function(response){
     console.log("Deleted");
     vm.updateTickets();
   });

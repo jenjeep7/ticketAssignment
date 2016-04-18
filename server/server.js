@@ -3,7 +3,7 @@ var mongoose=require('mongoose');
 var index=require('./routes/index');
 var bodyParser= require('body-parser');
 var app=express();
-var tickets = require('./routes/ticket')
+var tickets = require('./routes/ticket');
 //////////////////////////////////GLOBAL//////////////////////
 app.use(express.static('server/public'));
 app.use(bodyParser.json());

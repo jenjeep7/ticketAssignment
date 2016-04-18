@@ -10,8 +10,8 @@ var path = require('path');
 //posting new ticket to database?
 router.post('/new', function(request, response){
   var ticket= new Ticket(request.body);
-  //insert ticket.dateCreated = new Date(); here
-  //insert ticket.dateUpdated= new Date(); here
+  ticket.dateCreated = new Date();
+  ticket.dateUpdated= new Date();
   ticket.save(function(err){
     if(err) {console.log('error', err);
     // response.send(ticket.toJSON());
@@ -33,11 +33,19 @@ router.get('/all', function(request, response){
   }
   });
 });
-// router.get("/tickets" function(request, response){
-//
-// });
-//This post is to put the new ticket to the database from var Ticket above
 
+router.delete('/delete:id', function(request, response){
+  var id = request.params.id;
+  Ticket.findOneAndRemove({_id: id}).exec(function(err, ticket){
+    if(err){
+      console.log(err);
+      response.sendStatus(500);
+    } else{
+      console.log("The ticket is gone!");
+      response.sendStatus(200);
+    }
+  });
+});
 
 
 module.exports = router;

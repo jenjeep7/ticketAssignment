@@ -36,8 +36,10 @@
 <input type="submit" />
 
 </form>
+<div class="row">
 
-    <div ng-repeat="ticket in vm.ticketList">
+
+    <div ng-repeat="ticket in vm.ticketList" class="col-md-3">
       Name:  {{ticket.name}}
       Type: {{ticket.type}}
       Priority: {{ticket.priority}}
@@ -45,11 +47,13 @@
       Assignee: {{ticket.assignee}}
       Reporter:  {{ticket.reporter}}
       <!-- create a function to get date -->
-      Created:
+      Created: {{ticket.dateCreated}}
       <!-- create a function somewhere to get date -->
-      Updated:
-    </div>
+      Updated: {{ticket.dateUpdated}}
 
+      <button class="btn btn-warning" ng-click="vm.deleteTicket(ticket)">Delete Ticket</button>
+    </div>
+</div>
   </div>
 
 </body>
