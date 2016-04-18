@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Ticket Assignment</title>
+  <script src="vendor/angular/angular.min.js"></script>
+  <script src="assets/scripts/client.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="views/style.css" />
+</head>
+
+<body ng-controller="TicketController as parent">
+
+  <div class="container-fluid">
+
+    <h1>Ticket Assignments</h1>
+<form ng-submit="getTicket()">
+<label>Name:</label>
+<input type="text" ng-model="vm.name" />
+
+<label>Type:</label>
+<input type="text" ng-model="vm.type" />
+
+<label>Priority:</label>
+<input type="text" ng-model="vm.priority" />
+
+<label>Description:</label>
+<input type="text" ng-model="vm.description" />
+
+<label>Assignee:</label>
+<input type="text" ng-model="vm.assignee" />
+
+<label>Reporter:</label>
+<input type="text" ng-model="vm.reporter" />
+
+<input type="submit" />
+
+</form>
+
+    <div ng-repeat="ticket in ticketList">
+      Name:  {{vm.name}}
+      Type: {{ticket.type}}
+      Priority: {{ticket.priority}}
+      Description: {{ticket.description}}
+      Assignee: {{ticket.assignee}}
+      Reporter:  {{ticket.reporter}}
+      <!-- create a function to get date -->
+      Created:
+      <!-- create a function somewhere to get date -->
+      Updated:
+    </div>
+
+  </div>
+
+</body>
+</html>
