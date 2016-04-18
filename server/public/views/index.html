@@ -12,48 +12,50 @@
 <body ng-controller="TicketController as vm">
 
   <div class="container-fluid">
+    <div class="jumbotron">
 
-    <h1>Ticket Assignments</h1>
-<form ng-submit="vm.getTicket()">
-<label>Name:</label>
-<input type="text" ng-model="vm.newTicket.name" />
-
-<label>Type:</label>
-<input type="text" ng-model="vm.newTicket.type" />
-
-<label>Priority:</label>
-<input type="text" ng-model="vm.newTicket.priority" />
-
-<label>Description:</label>
-<input type="text" ng-model="vm.newTicket.description" />
-
-<label>Assignee:</label>
-<input type="text" ng-model="vm.newTicket.assignee" />
-
-<label>Reporter:</label>
-<input type="text" ng-model="vm.newTicket.reporter" />
-
-<input type="submit" />
-
-</form>
-<div class="row">
-
-
-    <div ng-repeat="ticket in vm.ticketList" class="col-md-3">
-      Name:  {{ticket.name}}
-      Type: {{ticket.type}}
-      Priority: {{ticket.priority}}
-      Description: {{ticket.description}}
-      Assignee: {{ticket.assignee}}
-      Reporter:  {{ticket.reporter}}
-      <!-- create a function to get date -->
-      Created: {{ticket.dateCreated}}
-      <!-- create a function somewhere to get date -->
-      Updated: {{ticket.dateUpdated}}
-
-      <button class="btn btn-warning" ng-click="vm.deleteTicket(ticket)">Delete Ticket</button>
+      <h1>Ticket Assignments</h1>
     </div>
-</div>
+    <form ng-submit="vm.getTicket()">
+      <label>Name:</label>
+      <input type="text" ng-model="vm.newTicket.name" />
+
+      <label>Type:</label>
+      <input type="text" ng-model="vm.newTicket.type" />
+
+      <label>Priority:</label>
+      <input type="text" ng-model="vm.newTicket.priority" />
+
+      <label>Description:</label>
+      <input type="text" ng-model="vm.newTicket.description" />
+
+      <label>Assignee:</label>
+      <input type="text" ng-model="vm.newTicket.assignee" />
+
+      <label>Reporter:</label>
+      <input type="text" ng-model="vm.newTicket.reporter" />
+
+      <input type="submit" />
+
+    </form>
+    <div class="row">
+
+
+      <div ng-repeat="ticket in vm.ticketList" class="col-md-4 well">
+        Name:  {{ticket.name}}
+        Type: {{ticket.type}}
+        Priority: {{ticket.priority}}
+        Description: {{ticket.description}}
+        Assignee: {{ticket.assignee}}
+        Reporter:  {{ticket.reporter}}
+        <!-- create a function to get date -->
+        Created: {{ticket.dateCreated}}
+        <!-- create a function somewhere to get date -->
+        Updated: {{ticket.dateUpdated}}
+
+        <button class="btn btn-warning btn-xs" ng-click="vm.deleteTicket(ticket)">Completed</button>
+      </div>
+    </div>
   </div>
 
 </body>
