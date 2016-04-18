@@ -3,6 +3,7 @@ var mongoose=require('mongoose');
 var index=require('./routes/index');
 var bodyParser= require('body-parser');
 var app=express();
+var tickets = require('./routes/ticket')
 //////////////////////////////////GLOBAL//////////////////////
 app.use(express.static('server/public'));
 app.use(bodyParser.json());
@@ -10,6 +11,9 @@ app.use(bodyParser.json());
 
 //////////////////////Routers///////////////////////
 app.use('/', index);
+//need to make sure and call the ticket router into the server in order to use the information
+
+app.use('/tickets', tickets);
 
 ///////////////////////////////MONGO/////////////////////////////////////
 var mongoURI = 'mongodb://localhost/tickets';

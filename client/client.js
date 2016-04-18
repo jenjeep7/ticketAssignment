@@ -7,17 +7,19 @@ app.controller("TicketController", ["$http", function($http){
 
 
 vm.getTicket= function(){
-  $http.post("/new", vm.newTicket).then(function(response){
-    console.log('created tickets');
-    vm.updateTickets();
+  $http.post("/tickets/new", vm.newTicket).then(function(response){
+    console.log('created ticket');
+    // vm.updateTickets();
   });
   //get tickets
   vm.updateTickets();
 };
 
 vm.updateTickets = function() {
-  $http.get('/add').then(function(response){
+  //the/tickets is the router with the information and then /all can be added to create the end point
+  $http.get('/tickets/all').then(function(response){
     vm.ticketList = response.data;
+    console.log(vm.ticketList);
   });
 };
 vm.deleteTicket = function(ticket) {

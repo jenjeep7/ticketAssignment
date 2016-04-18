@@ -2,7 +2,7 @@ var express= require('express');
 var path = require('path');
 
 var router = express.Router();
-
+var Ticket = require('../../Ticket.js');
 var path = require('path');
 
 

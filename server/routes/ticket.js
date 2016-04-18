@@ -8,7 +8,7 @@ var path = require('path');
 
 
 //posting new ticket to database?
-router.post('/add', function(request, response){
+router.post('/new', function(request, response){
   var ticket= new Ticket(request.body);
   //insert ticket.dateCreated = new Date(); here
   //insert ticket.dateUpdated= new Date(); here

@@ -12,6 +12,6 @@ var ticketSchema = new Schema ({
   Updated: Date
 });
 
-var Ticket = mongoose.model('Ticket', ticketSchema);
+var Ticket = mongoose.model('tickets', ticketSchema);
 
 module.exports = Ticket;

@@ -9,36 +9,36 @@
   <link rel="stylesheet" href="views/style.css" />
 </head>
 
-<body ng-controller="TicketController as parent">
+<body ng-controller="TicketController as vm">
 
   <div class="container-fluid">
 
     <h1>Ticket Assignments</h1>
-<form ng-submit="getTicket()">
+<form ng-submit="vm.getTicket()">
 <label>Name:</label>
-<input type="text" ng-model="vm.name" />
+<input type="text" ng-model="vm.newTicket.name" />
 
 <label>Type:</label>
-<input type="text" ng-model="vm.type" />
+<input type="text" ng-model="vm.newTicket.type" />
 
 <label>Priority:</label>
-<input type="text" ng-model="vm.priority" />
+<input type="text" ng-model="vm.newTicket.priority" />
 
 <label>Description:</label>
-<input type="text" ng-model="vm.description" />
+<input type="text" ng-model="vm.newTicket.description" />
 
 <label>Assignee:</label>
-<input type="text" ng-model="vm.assignee" />
+<input type="text" ng-model="vm.newTicket.assignee" />
 
 <label>Reporter:</label>
-<input type="text" ng-model="vm.reporter" />
+<input type="text" ng-model="vm.newTicket.reporter" />
 
 <input type="submit" />
 
 </form>
 
-    <div ng-repeat="ticket in ticketList">
-      Name:  {{vm.name}}
+    <div ng-repeat="ticket in vm.ticketList">
+      Name:  {{ticket.name}}
       Type: {{ticket.type}}
       Priority: {{ticket.priority}}
       Description: {{ticket.description}}
